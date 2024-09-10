@@ -20,16 +20,19 @@
         h1 {
             font-size: 3em;
             color: #fff;
+			padding-left:20px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
             animation: fadeIn 2s ease-in-out;
         }
 
-        .message {
+        #message {
             font-size: 1em;
             color: #ffeb3b;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
             animation: slideIn 2s ease-in-out;
             margin: 20px 0;
+			padding-left: 20px;
+            white-space: pre-wrap;
         }
 
         .footer {
@@ -99,29 +102,35 @@
     </div>
     <div>
         <h1>教师节快乐！</h1>
-        <div class="message">
-            姐姐，感谢你在高中的陪伴，<br>
-            才有了今天不一样的我，<br>
-            虽然我已经毕业多年，<br>
-            但是心中依然记得你教会了我很多，<br>
-            不仅仅是知识，<br>
-            是你的耐心指导与劝说，<br>
-            让我学会了自我调节，<br>
-            让我懂得了取舍，<br>
-            让我明白了为人处事<br>
-            等等...<br>
-            这些心里话，<br>
-            我好像从来没有和你说过，<br>
-            今天终于告诉你了，嘻嘻<br>
-            说实话，高中能遇到这样的班主任，<br>
-            真的是我人生中的一笔财富，<br>
-            我真的特别感谢你，姐姐<br>
-            最后的最后送上一句祝福<br>
-            祝姐姐你健康快乐，桃李满天下！
-        </div>
+        <div id="message"></div>
         <div class="footer">
            <div style="margin-left:20px;"> —— 祝姐姐节日快乐，愿你的每一天都充满阳光与笑声！</div>
         </div>
     </div>
 </body>
+<script>
+    // 要显示的祝福信息
+    const message = "姐姐，感谢你在高中的陪伴，\n才有了今天不一样的我，\n虽然我已经毕业多年，\n但是心中依然记得你教会了我很多，\n不仅仅是知识，\n是你的耐心指导与劝说，\n让我学会了自我调节，\n让我懂得了取舍，\n让我明白了为人处事\n等等...\n这些心里话，\n我好像从来没有和你说过，\n今天终于告诉你了，嘻嘻\n说实话，高中能遇到这样的班主任，\n真的是我人生中的一笔财富，\n我真的特别感谢你，姐姐\n最后的最后送上一句祝福\n祝姐姐你健康快乐，桃李满天下！";
+
+    // 获取要显示文本的元素
+    const messageElement = document.getElementById('message');
+
+    // 打字效果的速度（字符/秒）
+    const typingSpeed = 50; 
+
+    let index = 0; // 当前字符索引
+
+    // 打字效果函数
+    function typeWriter() {
+        if (index < message.length) {
+            messageElement.textContent += message.charAt(index);
+            console.log(messageElement.textContent);
+            index++;
+            setTimeout(typeWriter, typingSpeed);
+        }
+    }
+
+    // 开始打字效果
+    typeWriter();
+</script>
 </html>
